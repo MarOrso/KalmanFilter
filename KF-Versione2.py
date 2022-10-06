@@ -25,9 +25,9 @@ import time
 from tkinter import SW
 from numpy.linalg import inv, det
 
-from utilitys.utils import *
+from utility.utils import *
 from KalmanFilter.kf import *
-from utilitys.MieFunzionis import *
+from utility.MieFunzioni import *
 
 from ahrs.filters import AngularRate
 
