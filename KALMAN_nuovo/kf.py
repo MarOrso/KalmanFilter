@@ -94,10 +94,12 @@ for i in range(10):
     # IMPLEMENTAZIONE FILTRO
 
     if i==0:
-        (X, P) = kf_predict(X, P, phii, Q) 
+        (X, P) = kf_predict(X, P, phii, Q) #nella prima iterazione non metto il propagatore perchè parto dalla posizione iniziale
         pre.append(X)
         step=1
-        H, latitude, longitude = cartesian2spherical(real_X[i+step], real_Y[i+step], real_Z[i+step])
+        H, latitude, longitude = cartesian2spherical(real_X[i+step], real_Y[i+step], real_Z[i+step]) #centro l'area di ricerca intorno alla posizione vera
+                                                                                                     #perchè nella realtà l'immagine del suolo sarebbe centrata 
+                                                                                                     #intorno a questa posizione
         E, N, U = LCLF2ENU (real_X[i+step], real_Y[i+step], real_Z[i+step], latitude, longitude)
         d = SW_nadir(H)
         ES=E-0.5*d
